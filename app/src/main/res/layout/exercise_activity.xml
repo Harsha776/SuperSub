@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.harsha.ui.exercise.ExcerciseViewModel"
+            />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/black">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackPress"
+            android:layout_width="@dimen/thirtyDp"
+            android:layout_height="@dimen/thirtyDp"
+            android:layout_marginStart="@dimen/fifteendp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+            tools:ignore="VectorDrawableCompat"
+            android:layout_marginLeft="@dimen/fifteendp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/eighteensp"
+                android:fontFamily="@font/circular_air_bold"
+                android:textColor="@color/white"
+                android:layout_marginLeft="@dimen/twentyDp"
+                app:layout_constraintStart_toEndOf="@+id/ivBackPress"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/twentyDp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        app:layout_constraintTop_toBottomOf="@+id/cvToolBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/tenDp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvVideo"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="@dimen/eightDp"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginEnd="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/twentyDp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="@dimen/tenDp"
+            tools:targetApi="lollipop">
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTopPicks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/cvVideo"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginLeft="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/circular_air_bold"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/tenDp"
+            android:background="@color/greenHaze"
+            app:layout_constraintEnd_toEndOf="@+id/tvTopPicks"
+            app:layout_constraintStart_toStartOf="@+id/tvTopPicks"
+            app:layout_constraintTop_toBottomOf="@+id/tvTopPicks"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDescribtion"
+            android:layout_width="@dimen/zeroDp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/tenDp"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginLeft="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/fifteendp"
+            android:fontFamily="@font/circular_air_light"
+            android:layout_marginRight="@dimen/tenDp"
+            tools:ignore="SpUsage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRepetioins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescribtion"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginLeft="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:text="@string/repetitions"
+            android:textColor="@color/white"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/circular_air_bold"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRepTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvDescribtion"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/circular_air_bold"
+            android:layout_marginEnd="@dimen/fifteendp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInfographics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepetioins"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginLeft="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:text="@string/infographics"
+            android:textColor="@color/white"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/circular_air_bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBanner"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:cardCornerRadius="@dimen/eightDp"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginEnd="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/twentyDp"
+            app:layout_constraintTop_toBottomOf="@+id/tvInfographics"
+            android:elevation="@dimen/tenDp"
+            tools:targetApi="lollipop">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivInfograohics"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/place_holder"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+    <ProgressBar
+        android:visibility="@{viewModel.progressBar?View.VISIBLE:View.GONE}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Supersub</string>
+    <string name="noInternet">No Internet!!</string>
+    <string name="retry">Retry</string>
+    <string name="feed">Feed</string>
+    <string name="sets">Sets</string>
+    <string name="reps">Reps</string>
+    <string name="repetitions">Repetitions</string>
+    <string name="infographics">INFOGRAPHICS</string>
+</resources>

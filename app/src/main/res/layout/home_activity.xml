@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.harsha.ui.home.HomeViewModel"
+            />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fiftyDp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/thirtyDp"
+            android:layout_height="@dimen/thirtyDp"
+            android:layout_marginStart="@dimen/fifteendp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_person_24"
+            tools:ignore="VectorDrawableCompat"
+            android:layout_marginLeft="@dimen/fifteendp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed"
+                android:textSize="@dimen/eighteensp"
+                android:fontFamily="@font/circular_air_bold"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/thirtyDp"
+                android:layout_height="@dimen/thirtyDp"
+                android:layout_marginEnd="@dimen/fiveDp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/icAlert"
+                app:srcCompat="@drawable/ic_baseline_search_24"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_marginRight="@dimen/fifteendp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icAlert"
+                android:layout_width="@dimen/thirtyDp"
+                android:layout_height="@dimen/thirtyDp"
+                android:layout_marginEnd="@dimen/fifteendp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_baseline_add_alert_24"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_marginRight="@dimen/fifteendp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cvToolBar">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zeroDp"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginLeft="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/circular_air_bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/eightDp"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginEnd="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/twentyDp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            android:elevation="@dimen/tenDp"
+            tools:targetApi="lollipop">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLoadBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/place_holder"
+            android:scaleType="centerCrop"
+            />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tenDp"
+            android:layout_marginStart="@dimen/tenDp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/cvBanner"
+            android:layout_marginLeft="@dimen/tenDp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTopPicks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rvCategory"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/fifteendp"
+            android:layout_marginLeft="@dimen/fifteendp"
+            android:layout_marginTop="@dimen/fifteendp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/eighteensp"
+            android:fontFamily="@font/circular_air_bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopPicks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tenDp"
+            android:layout_marginStart="@dimen/tenDp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/tvTopPicks"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/fourtyDp"
+            android:layout_marginLeft="@dimen/tenDp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lightred"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/tenDp"
+        android:id="@+id/clNetWork"
+        android:visibility="gone"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noInternet"
+            android:padding="@dimen/tenDp"
+            android:textColor="@color/ligthWhite"
+            android:textSize="@dimen/twentysp"
+            android:layout_marginStart="@dimen/fifteendp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/fifteendp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retry"
+            android:padding="@dimen/tenDp"
+            android:textColor="@color/ligthWhite"
+            android:textSize="@dimen/twentysp"
+            android:layout_marginEnd="@dimen/fifteendp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/fifteendp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="@{viewModel.progressBar?View.VISIBLE:View.GONE}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
