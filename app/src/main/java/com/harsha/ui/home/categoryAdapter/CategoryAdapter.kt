@@ -2,7 +2,6 @@ package com.harsha.ui.home.categoryAdapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -36,8 +35,8 @@ class CategoryAdapter(category:ArrayList<Categories>): RecyclerView.Adapter<Cate
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemBinding.tvCategoryname.text=category.get(position).name
-        Glide.with(mContext).load(category.get(position).icon).into(holder.itemBinding.ivCategoryImage)
+        holder.itemBinding.tvCategoryname.text=category.get(position).getName()
+        Glide.with(mContext).load(category.get(position).getIcon()).into(holder.itemBinding.ivCategoryImage)
     }
 
     class ViewHolder(itemBinding: ItemCategoryListBinding) : RecyclerView.ViewHolder(itemBinding.root) {

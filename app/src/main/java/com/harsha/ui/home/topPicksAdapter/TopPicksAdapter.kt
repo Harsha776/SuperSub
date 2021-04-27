@@ -16,7 +16,7 @@ import com.harsha.ui.splashactivity.databinding.ItemTopPicksListBinding
 /**
  * this adpater is used to show top picks list
  */
-class TopPicksAdapter(drills:ArrayList<Drills>,homeActivity: HomeActivity): RecyclerView.Adapter<TopPicksAdapter.ViewHolder>() {
+class TopPicksAdapter(drills:ArrayList<Drills>, homeActivity: HomeActivity): RecyclerView.Adapter<TopPicksAdapter.ViewHolder>() {
 
     lateinit var mContext: Context
     lateinit var homeActivity: HomeActivity
@@ -40,13 +40,13 @@ class TopPicksAdapter(drills:ArrayList<Drills>,homeActivity: HomeActivity): Recy
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemBinding.webView.loadUrl(drills.get(position).video.url)
-        holder.itemBinding.tvSubtitle.text = drills.get(position).subtitle
-        holder.itemBinding.tvTitle.text = "| ${drills.get(position).title}"
-        holder.itemBinding.tvBasics.text = drills.get(position).difficulty
-        holder.itemBinding.tvTime.text = Util.secondsToMinute(drills.get(position).duration.toInt())
+        holder.itemBinding.webView.loadUrl(drills.get(position).getVideo()!!.getUrl()!!)
+        holder.itemBinding.tvSubtitle.text = drills.get(position).getSubtitle()
+        holder.itemBinding.tvTitle.text = "| ${drills.get(position).getTitle()}"
+        holder.itemBinding.tvBasics.text = drills.get(position).getDifficulty()
+        holder.itemBinding.tvTime.text = Util.secondsToMinute(drills.get(position).getDuration()!!.toInt())
         holder.itemBinding.cvMain.setOnClickListener {
-            homeActivity.onSelect(drills.get(position)._id)
+            homeActivity.onSelect(drills.get(position).get_id()!!)
         }
 
     }

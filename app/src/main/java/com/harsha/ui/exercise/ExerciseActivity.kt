@@ -60,15 +60,15 @@ class ExerciseActivity : DaggerAppCompatActivity() {
     private fun responseObserver(){
         excerciseViewModel.onDelayObserver().observe(this, Observer {
             if(it!=null){
-                mBinding.tvTitle.text = it.category
-                mBinding.webView.loadUrl(it.video.url)
+                mBinding.tvTitle.text = it.getCategory()
+                mBinding.webView.loadUrl(it.getVideo()!!.getUrl()!!)
                 mBinding.webView.webViewClient = object : WebViewClient(){}
                 mBinding.webView.webChromeClient = object : WebChromeClient() {}
                 mBinding.webView.settings.setJavaScriptEnabled(true)
-                mBinding.tvTopPicks.text = it.title
-                mBinding.tvDescribtion.text = it.description
-                mBinding.tvRepTime.text = "${it.sets} ${getString(R.string.sets)} ${it.reps} ${getString(R.string.reps)}"
-                Glide.with(this).load(it.illustration.imageUrl).into(mBinding.ivInfograohics)
+                mBinding.tvTopPicks.text = it.getTitle()
+                mBinding.tvDescribtion.text = it.getDescription()
+                mBinding.tvRepTime.text = "${it.getSets()} ${getString(R.string.sets)} ${it.getReps()} ${getString(R.string.reps)}"
+                Glide.with(this).load(it.getIllustration()!!.getImageUrl()).into(mBinding.ivInfograohics)
 
             }
         })

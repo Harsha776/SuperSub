@@ -67,12 +67,12 @@ class HomeActivity : DaggerAppCompatActivity() {
     private fun responeObserver(){
         homeViewModel.responseObserver().observe(this, Observer {
             if(it!=null){
-                mBinding.tvTitle.text = it.banner.header
-                Glide.with(this).load(it.banner.image).placeholder(getDrawable(R.drawable.place_holder)).into(mBinding.ivLoadBanner)
-                itemCategoryList = CategoryAdapter(it.categories)
+                mBinding.tvTitle.text = it.getBanner()!!.getHeader()
+                Glide.with(this).load(it.getBanner()!!.getImage()).placeholder(getDrawable(R.drawable.place_holder)).into(mBinding.ivLoadBanner)
+                itemCategoryList = CategoryAdapter(it.getCategories()!!)
                 mBinding.rvCategory.adapter=itemCategoryList
-                mBinding.tvTopPicks.text=it.topPicks.title
-                itemTopPicksAdapter= TopPicksAdapter(it.topPicks.drills,this)
+                mBinding.tvTopPicks.text= it.getTopPicks()!!.getTitle()
+                itemTopPicksAdapter= TopPicksAdapter(it.getTopPicks()!!.getDrills()!!,this)
                 mBinding.rvTopPicks.setHasFixedSize(true)
                 mBinding.rvTopPicks.adapter=itemTopPicksAdapter
             }
