@@ -7,7 +7,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.harsha.common.Util
+import com.harsha.common.Constants
 import com.harsha.data.model.Drills
 import com.harsha.ui.home.HomeActivity
 import com.harsha.ui.splashactivity.R
@@ -44,7 +44,7 @@ class TopPicksAdapter(drills:ArrayList<Drills>, homeActivity: HomeActivity): Rec
         holder.itemBinding.tvSubtitle.text = drills.get(position).getSubtitle()
         holder.itemBinding.tvTitle.text = "| ${drills.get(position).getTitle()}"
         holder.itemBinding.tvBasics.text = drills.get(position).getDifficulty()
-        holder.itemBinding.tvTime.text = Util.secondsToMinute(drills.get(position).getDuration()!!.toInt())
+        holder.itemBinding.tvTime.text = Constants.secondsToMinute(drills.get(position).getDuration()!!.toInt())
         holder.itemBinding.cvMain.setOnClickListener {
             homeActivity.onSelect(drills.get(position).get_id()!!)
         }
